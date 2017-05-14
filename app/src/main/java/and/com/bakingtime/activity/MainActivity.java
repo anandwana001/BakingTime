@@ -1,5 +1,6 @@
 package and.com.bakingtime.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import and.com.bakingtime.adapter.RecipeAdapter;
 import and.com.bakingtime.model.Recipe;
 import and.com.bakingtime.networking.BakingClient;
 import and.com.bakingtime.networking.BakingInterface;
+import and.com.bakingtime.util.RecyclerTouchListener;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -57,6 +59,23 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         mRecipeAdapter = new RecipeAdapter(recipeArrayList, MainActivity.this);
         recyclerView.setAdapter(mRecipeAdapter);
+
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+                Recipe recipe = recipeArrayList.get(position);
+                Bundle b = new Bundle();
+                b.putParcelable("object", recipe);
+
+                Intent recipeIntent = new Intent(MainActivity.this, RecipeListActivity.class);
+                recipeIntent.putExtras(b);
+                startActivity(recipeIntent);
+
+            }
+            @Override
+            public void onLongClick(View view, int position) {}
+        }));
 
         getData();
     }

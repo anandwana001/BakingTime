@@ -38,15 +38,18 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+
         holder.recipeName.setText(recipeList.get(position).getName());
+
         String path = recipeList.get(position).getImage();
-        if(path=="")
+        if (path == "")
             Picasso.with(context).load(R.mipmap.ic_launcher).into(holder.thumbnail);
-        else{
+        else {
             Picasso.with(context).load(path).into(holder.thumbnail);
         }
     }
+
 
     @Override
     public int getItemCount() {
@@ -54,10 +57,12 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.MyViewHold
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
         @BindView(R.id.recipe_name)
         TextView recipeName;
         @BindView(R.id.thumbnail)
         ImageView thumbnail;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

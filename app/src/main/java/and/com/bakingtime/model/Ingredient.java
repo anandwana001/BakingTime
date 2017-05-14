@@ -47,6 +47,12 @@ public class Ingredient implements Parcelable {
     }
 
     @Override
+    public String toString() {
+        return "quantity = " + quantity + "measure = " + measure + "ingredient = " + ingredient +"\n";
+
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -59,7 +65,7 @@ public class Ingredient implements Parcelable {
     }
 
     protected Ingredient(Parcel in) {
-        this.quantity = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.quantity = (float) in.readValue(Integer.class.getClassLoader());
         this.measure = in.readString();
         this.ingredient = in.readString();
     }

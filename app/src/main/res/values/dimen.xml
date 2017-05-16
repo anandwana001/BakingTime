@@ -4,6 +4,6 @@
     <dimen name="album_cover_height">160dp</dimen>
     <dimen name="album_title_padding">10dp</dimen>
     <dimen name="album_title">15sp</dimen>
-    <dimen name="card_album_radius">0dp</dimen>
+    <dimen name="card_album_radius">2dp</dimen>
     <dimen name="text_size_xlarge">22sp</dimen>
 </resources>

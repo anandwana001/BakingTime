@@ -3,8 +3,8 @@ package and.com.bakingtime.fragment;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +48,7 @@ public class IngredientDetailFragment extends Fragment {
         ButterKnife.bind(this, rootView);
 
         if(ingredientList!=null){
-            ingredientRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            ingredientRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
             ingredientAdapter = new IngredientAdapter(ingredientList);
             ingredientRecyclerView.setAdapter(ingredientAdapter);
@@ -68,5 +68,11 @@ public class IngredientDetailFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(LIST_IN, (ArrayList<? extends Parcelable>) ingredientList);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().setTitle(R.string.ingre);
     }
 }

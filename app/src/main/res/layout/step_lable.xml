@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:id="@+id/step_lable" android:layout_width="match_parent"
+    android:id="@+id/step_lable"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Step"/>
+    android:text="@string/step"
+    style="?android:attr/textAppearanceMedium"
+    android:padding="13dp"
+    android:background="@color/colorAccent"
+    android:textColor="@color/primary_text" />
+
+
+
+

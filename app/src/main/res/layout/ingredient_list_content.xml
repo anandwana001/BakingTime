@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    style="@style/MatchWrapWidHei"
+    android:layout_marginTop="@dimen/fab_margin"
+    android:layout_marginBottom="@dimen/card_margin"
+    android:layout_marginEnd="@dimen/card_margin"
+    android:layout_marginStart="@dimen/card_margin"
+    card_view:cardCornerRadius="@dimen/card_album_radius">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/ingredient_size"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="?android:attr/textAppearanceSmall"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/card_margin"
-        android:padding="@dimen/album_title_padding"
-        android:elevation="3dp"
-        card_view:cardCornerRadius="@dimen/card_album_radius">
+        android:padding="8dp"
+        tool:text="Ingredient"
+        android:textColor="@color/primary_text"/>
 
-            <TextView
-                android:id="@+id/ingredient_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="@dimen/card_margin"/>
-
-
-    </android.support.v7.widget.CardView>
-
-</LinearLayout>
+</android.support.v7.widget.CardView>

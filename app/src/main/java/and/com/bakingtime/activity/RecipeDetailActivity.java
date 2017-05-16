@@ -38,7 +38,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
                 ingredientDetailFragment.setIngList(ingredientList);
 
                 getSupportFragmentManager().beginTransaction()
-                        .add(R.id.item_detail_container, ingredientDetailFragment)
+                        .replace(R.id.item_detail_container, ingredientDetailFragment)
                         .commit();
             } else{
 
@@ -47,7 +47,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
                 stepDetailFragment.setStepList(stepList);
 
                 getSupportFragmentManager().beginTransaction()
-                        .add(R.id.item_detail_container, stepDetailFragment)
+                        .replace(R.id.item_detail_container, stepDetailFragment)
                         .commit();
             }
         }

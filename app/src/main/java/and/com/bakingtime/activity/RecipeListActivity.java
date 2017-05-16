@@ -3,7 +3,6 @@ package and.com.bakingtime.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -53,8 +52,9 @@ public class RecipeListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Bundle bundle = getIntent().getExtras();
-        if (bundle != null)
+        if (bundle != null){
             recipe = bundle.getParcelable("object");
+        }
 
         ingredientList = recipe.getIngredients();
         stepList = recipe.getSteps();
@@ -84,16 +84,19 @@ public class RecipeListActivity extends AppCompatActivity {
                     bundle1.putParcelableArrayList("ingredient", (ArrayList<? extends Parcelable>) ingredientList);
 
                     if(mTwoPane){
-                        FragmentManager fragmentManager = getSupportFragmentManager();
 
                         IngredientDetailFragment newFragment = new IngredientDetailFragment();
                         newFragment.setIngList(ingredientList);
 
-                        fragmentManager.beginTransaction()
+                        getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.item_detail_container, newFragment)
                                 .commit();
+                    }else{
+                        Intent intent = new Intent(getBaseContext(), RecipeDetailActivity.class);
+                        intent.putExtras(bundle1);
+                        startActivity(intent);
                     }
-                } else if(position > 2){
+                } else if(position > 2) {
 
                     bundle1.putParcelableArrayList("step", (ArrayList<? extends Parcelable>) stepList);
                     bundle1.putInt("position", position -3);
@@ -107,12 +110,11 @@ public class RecipeListActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.item_detail_container, stepDetailFragment)
                                 .commit();
+                    } else{
+                        Intent intent = new Intent(getBaseContext(), RecipeDetailActivity.class);
+                        intent.putExtras(bundle1);
+                        startActivity(intent);
                     }
-                }
-                if(!mTwoPane) {
-                    Intent intent = new Intent(getBaseContext(), RecipeDetailActivity.class);
-                    intent.putExtras(bundle1);
-                    startActivity(intent);
                 }
             }
             @Override
@@ -138,6 +140,7 @@ public class RecipeListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        this.setTitle(recipe.getName());
         if (mListState != null) {
             mLayoutManager.onRestoreInstanceState(mListState);
         }

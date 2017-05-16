@@ -44,7 +44,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.MyViewHold
 
         String path = recipeList.get(position).getImage();
         if (path == "")
-            Picasso.with(context).load(R.mipmap.ic_launcher).into(holder.thumbnail);
+            Picasso.with(context).load(R.drawable.mybakestudio).into(holder.thumbnail);
         else {
             Picasso.with(context).load(path).into(holder.thumbnail);
         }

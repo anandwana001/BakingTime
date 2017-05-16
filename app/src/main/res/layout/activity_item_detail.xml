@@ -1,8 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/MatchWidHei"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context=".activity.RecipeDetailActivity"
@@ -10,8 +9,7 @@
 
     <FrameLayout
         android:id="@+id/item_detail_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/MatchWrapWidHei"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>

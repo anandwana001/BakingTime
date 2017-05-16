@@ -2,4 +2,10 @@
     <string name="app_name">Baking Time</string>
     <string name="title_detail_list">details</string>
     <string name="title_detail_detail">detail Detail</string>
+
+    <string name="no_rec">No Recipe</string>
+    <string name="ingre">Ingredient</string>
+    <string name="step">Step</string>
+    <string name="prev">Previous</string>
+    <string name="next">Next</string>
 </resources>

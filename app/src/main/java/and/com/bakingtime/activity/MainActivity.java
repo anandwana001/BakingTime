@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean mTwoPane;
 
-    private List<Recipe> recipeArrayList = new ArrayList<>();
+    public static List<Recipe> recipeArrayList = new ArrayList<>();
     private RecipeAdapter mRecipeAdapter;
     private LinearLayoutManager mLayoutManager;
 

@@ -24,6 +24,15 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:2.2.2") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
+
     //recyceler view
     //card view
     //butter knife - UI binding library
@@ -40,6 +49,15 @@ dependencies {
     compile 'com.google.android.exoplayer:exoplayer:r2.2.0'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:design:25.3.1'
+
     testCompile 'junit:junit:4.12'
+
+    // add this for intent mocking support
+    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
+
+    // add this for webview testing support
+    androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.2'
+    androidTestCompile 'com.android.support:support-annotations:25.3.1'
+
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

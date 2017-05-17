@@ -1,6 +1,7 @@
 package and.com.bakingtime.widget;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -69,17 +70,21 @@ public class MyWidgetRemoteViewsFactory implements RemoteViewsService.RemoteView
     @Override
     public RemoteViews getViewAt(int position) {
 
+
+        Log.v(mContext.getClass().getSimpleName(), "position = "+position);
+
         RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.recipe_widget_item);
         rv.setTextViewText(R.id.recipe_name, recipeArrayList.get(position).getName());
+        rv.removeAllViews(R.id.ingerdient_list);
 
         for (int i=0;i<recipeArrayList.get(position).getIngredients().size();i++){
             RemoteViews  ing= new RemoteViews(mContext.getPackageName(), R.layout.ingredient_widget_item);
             ing.setTextViewText(R.id.ingredient,recipeArrayList.get(position).getIngredients().get(i).getIngredient());
             ing.setTextViewText(R.id.measure,recipeArrayList.get(position).getIngredients().get(i).getMeasure());
             ing.setTextViewText(R.id.quantity,recipeArrayList.get(position).getIngredients().get(i).getQuantity()+"");
+
             rv.addView(R.id.ingerdient_list,ing);
         }
-
         return rv;
     }
 

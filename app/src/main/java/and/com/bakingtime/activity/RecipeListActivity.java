@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -59,9 +58,6 @@ public class RecipeListActivity extends AppCompatActivity {
         ingredientList = recipe.getIngredients();
         stepList = recipe.getSteps();
 
-        Log.v(RecipeListActivity.class.getSimpleName(), "ingredients List  = " + ingredientList.toString());
-        Log.v(RecipeListActivity.class.getSimpleName(), "steps List  = " + stepList.toString());
-
         mLayoutManager = new LinearLayoutManager(this);
         recipe_step_ing_recyclerView.setLayoutManager(mLayoutManager);
         ingredientStepAdapter = new IngredientStepAdapter(stepList,ingredientList,mTwoPane, this);
@@ -70,7 +66,6 @@ public class RecipeListActivity extends AppCompatActivity {
 
         if (findViewById(R.id.item_detail_container) != null) {
             mTwoPane = true;
-            // set default layout if nothing is selected by user
         }
 
         recipe_step_ing_recyclerView.addOnItemTouchListener(new RecyclerTouchListener(this, recipe_step_ing_recyclerView, new RecyclerTouchListener.ClickListener() {
